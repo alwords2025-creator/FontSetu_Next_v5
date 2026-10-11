@@ -1,0 +1,30 @@
+FontSetu Next - KrutiDev 010 regression tests
+============================================
+Target: KrutiDev 010 / KrutiDev 10. Not a Shivaji or KrutiDev 055 engine.
+
+Key corrections in this build:
+- Longest-match, single-pass replacement prevents generated text being reprocessed.
+- Reph (Z) is attached to the consonant it belongs to instead of being moved to the start of the whole word.
+- The ~ character is treated as a halant in the supplied KrutiDev 010 encoding, fixing words such as धुळ्यातील and शेतकऱ्यांना.
+- In this supplied news-text convention, ? immediately before a number is treated as the rupee sign; Unicode ₹ converts back to ?.
+- ASCII hyphens are preserved instead of changing into ampersands.
+
+Headline regression example:
+KrutiDev:
+dtZeqäh ;kstusr èkqG~;krhy 3]258 'ksrdj+~;kauk ?33-01 dksVhapk fnyklk vkèkkj çek.khdj.k iw.kZ djk
+Unicode:
+कर्जमुक्ती योजनेत धुळ्यातील 3,258 शेतकऱ्यांना ₹33-01 कोटींचा दिलासा आधार प्रमाणीकरण पूर्ण करा
+
+Other regression examples:
+Hkkjr -> भारत
+ueLrs -> नमस्ते
+lkekU; -> सामान्य
+dke -> काम
+fd -> कि
+
+Run automated tests with: npm test
+
+Limitations:
+- KrutiDev is a legacy font encoding; ambiguous punctuation and non-standard source variants may need manual review.
+- If the original input already contains '?' where a character was lost before conversion, the missing character cannot be reconstructed reliably.
+- These tests verify the supplied article patterns and common words; they do not prove 100% accuracy for every document or all KrutiDev 010 glyphs.

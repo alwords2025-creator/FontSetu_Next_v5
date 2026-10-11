@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17345f">
+<title>FontSetu Next — Language & Creative Tools</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+<!-- AdSense: after Google approves your site, paste the exact script Google provides here. -->
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <a class="brand" href="#" data-page="home"><span class="brand-icon">अ</span><span>FontSetu<small>NEXT · WORKSPACE</small></span></a>
+  <div class="side-label">WORKSPACE</div>
+  <a href="#home" class="side-link active" data-page="home">⌂ <span>Dashboard</span></a>
+  <a href="#converter" class="side-link" data-page="converter">अ <span>Font converter</span></a>
+  <a href="#pdf" class="side-link" data-page="pdf">▤ <span>PDF & images</span></a>
+  <a href="#editor" class="side-link" data-page="editor">✎ <span>Image editor</span></a>
+  <a href="#history" class="side-link" data-page="history">◷ <span>Project history</span></a>
+  <a href="#ads" class="side-link" data-page="ads">↗ <span>Ads & affiliate</span></a>
+  <a href="#settings" class="side-link" data-page="settings">⚙ <span>Settings</span></a>
+  <div class="sidebar-bottom"><div class="mini-status"><span class="status-dot"></span><span>Browser workspace</span></div><small>Files stay on this device unless you download or share them.</small></div>
+</aside>
+<div class="main-area">
+<header class="topbar"><div><div class="breadcrumb">FONTSETU / <span id="crumb">DASHBOARD</span></div><h1 id="pageTitle">Dashboard</h1></div><div class="top-actions"><div class="clock-card"><span>LOCAL DATE & TIME</span><strong id="liveClock">Loading…</strong></div><button class="btn secondary" id="exportHistory">Export history</button></div></header>
+<main>
+<section class="page active" id="home-page">
+<div class="welcome"><div><div class="eyebrow">YOUR LANGUAGE & CREATIVE WORKSPACE</div><h2>Make your everyday tools<br><span>work smarter.</span></h2><p>Convert text, handle files, edit images, and track local activity in one responsive workspace.</p><div class="hero-actions"><button class="btn primary" data-goto="converter">Start converting →</button><button class="btn secondary" data-goto="editor">Open image editor</button></div></div><div class="welcome-art"><div class="art-card card-a">अ<br><small>Unicode</small></div><div class="art-card card-b">✦<br><small>Creative</small></div><div class="art-card card-c">PDF<br><small>Tools</small></div></div></div>
+<div class="stats-grid">
+<div class="stat-card"><span>Site visits on this browser</span><strong id="visitCount">0</strong><small>Local estimate, not total website traffic</small></div>
+<div class="stat-card"><span>Page impressions on this browser</span><strong id="impressionCount">0</strong><small>Counts page views in this browser</small></div>
+<div class="stat-card"><span>Actions recorded</span><strong id="actionCount">0</strong><small>Saved in this browser only</small></div>
+<div class="stat-card"><span>Last activity</span><strong class="stat-date" id="lastActivity">Not yet</strong><small id="todayDate">—</small></div>
+</div>
+<div class="section-head"><div><div class="eyebrow">QUICK ACCESS</div><h2>Your tools</h2></div><span class="muted">Updated <span id="updatedAt">—</span></span></div>
+<div class="tool-grid">
+<button class="tool-card" data-goto="converter"><span class="tool-symbol">अ</span><strong>Font converter</strong><small>KrutiDev ⇄ Unicode starter map</small><span class="tool-arrow">Open tool →</span></button>
+<button class="tool-card" data-goto="pdf"><span class="tool-symbol">▤</span><strong>PDF & image tools</strong><small>PDF pages to PNG, images to PDF</small><span class="tool-arrow">Open tool →</span></button>
+<button class="tool-card" data-goto="editor"><span class="tool-symbol">✎</span><strong>Image editor</strong><small>Text, shapes, filters and export</small><span class="tool-arrow">Open tool →</span></button>
+<button class="tool-card" data-goto="history"><span class="tool-symbol">◷</span><strong>Project history</strong><small>Recent actions and timestamps</small><span class="tool-arrow">View history →</span></button>
+</div>
+<div class="ad-slot"><div><span class="ad-label">ADVERTISEMENT</span><h3>Advertisement space</h3><p>This reserved area can display an approved ad or your own sponsored placement.</p></div><span class="ad-placeholder">Ad slot · 728 × 90</span></div>
+</section>
+
+<section class="page" id="converter-page">
+<div class="section-head"><div><div class="eyebrow">TEXT WORKSPACE</div><h2>KrutiDev ⇄ Unicode Converter</h2><p class="muted">दोनों बॉक्स में टेक्स्ट डालें और अपनी ज़रूरत के अनुसार कन्वर्ज़न चुनें। Hindi / Marathi Unicode supported; legacy mapping coverage depends on the source font.</p></div></div>
+<div class="converter-toolbar panel"><div><strong>Conversion direction</strong><p class="muted">पहले सही दिशा चुनें। बॉक्स बड़े किए गए हैं ताकि लंबा टेक्स्ट आसानी से पढ़ और एडिट कर सकें।</p></div><button class="btn secondary" id="swapDirection" type="button">⇄ Swap boxes</button></div>
+<div class="two-col converter-grid">
+<article class="panel converter-panel"><div class="panel-title"><div><small id="leftLabelSmall">INPUT</small><h3 id="leftLabel">KrutiDev (legacy)</h3></div><span class="tag" id="leftTag">Legacy text</span></div><textarea id="krutiInput" spellcheck="false" placeholder="यहाँ KrutiDev text paste करें…">Hkkjr ljdkj</textarea><div class="converter-actions"><button class="btn primary" id="toUnicode">Convert → Unicode</button><div class="button-row"><button class="btn small" data-clip="copy" data-target="krutiInput">Copy</button><button class="btn small ghost" data-clip="clear" data-target="krutiInput">Clear</button></div></div></article>
+<article class="panel converter-panel"><div class="panel-title"><div><small id="rightLabelSmall">OUTPUT</small><h3 id="rightLabel">Unicode (Hindi / Marathi)</h3></div><span class="tag blue">Text</span></div><textarea id="unicodeOutput" spellcheck="false" placeholder="Unicode या KrutiDev result यहाँ दिखेगा…"></textarea><div class="converter-actions"><button class="btn accent" id="toKruti">Convert → KrutiDev</button><div class="button-row"><button class="btn small" data-clip="copy" data-target="unicodeOutput">Copy</button><button class="btn small ghost" data-clip="clear" data-target="unicodeOutput">Clear</button></div></div></article>
+</div>
+<div class="panel inline-panel"><div><h3>Text file tools</h3><p class="muted">Upload UTF-8 text or download the currently converted result.</p></div><label class="btn secondary file-button">Upload .txt<input type="file" id="textUpload" accept=".txt,text/plain"></label><button class="btn secondary" id="downloadTxt">Download TXT</button><button class="btn secondary" id="downloadTxtPdf">Export PDF (Latin text best)</button></div>
+<div class="notice">महत्वपूर्ण: KrutiDev 010/legacy fonts के लिए पूरी mapping और matra-reordering rules ज़रूरी हैं। यह project साफ़ दो-बॉक्स UI और common mappings देता है, लेकिन हर Hindi/Marathi शब्द की 100% accuracy का दावा नहीं करता। Marathi के लिए KrutiDev 055 या Shivaji जैसे अलग font encoding होने पर उसी font का converter चाहिए।</div>
+</section>
+
+<section class="page" id="pdf-page">
+<div class="section-head"><div><div class="eyebrow">DOCUMENT WORKSPACE</div><h2>PDF ⇄ Images</h2><p class="muted">Local browser processing; large PDFs may use significant memory.</p></div></div>
+<div class="panel tool-panel"><div class="panel-title"><div><small>TOOL A</small><h3>PDF to PNG</h3></div><span class="tag">PDF.js</span></div><label class="btn primary file-button">Choose PDF<input type="file" id="pdfUpload" accept=".pdf,application/pdf"></label><p id="pdfStatus" class="muted status">No PDF selected.</p><div id="pdfPreviewArea" class="preview-grid"></div></div>
+<div class="panel tool-panel"><div class="panel-title"><div><small>TOOL B</small><h3>Images to PDF</h3></div><span class="tag">JPG / PNG</span></div><label class="btn primary file-button">Choose images<input type="file" id="imageUpload" accept="image/jpeg,image/png,.jpg,.jpeg,.png" multiple></label><p id="imageStatus" class="muted status">No images selected.</p><div id="imageList" class="chips"></div><button class="btn accent" id="imagesToPdfBtn">Create & download PDF</button></div>
+</section>
+
+<section class="page" id="editor-page">
+<div class="section-head"><div><div class="eyebrow">CREATIVE WORKSPACE</div><h2>Image editor</h2><p class="muted">Upload an image, add text or shapes, apply simple filters, then export PNG.</p></div></div>
+<div class="editor-layout">
+<div class="panel editor-controls"><h3>Canvas controls</h3><label class="btn secondary file-button full">Upload image<input type="file" id="editorUpload" accept="image/*"></label>
+<label class="field-label" for="overlayText">Text to add</label><input id="overlayText" class="text-input" placeholder="Type your text…">
+<div class="control-row"><label>Text size</label><input id="textSize" type="number" min="10" max="120" value="32"></div>
+<div class="control-row"><label>Text color</label><input id="textColor" type="color" value="#ffffff"></div>
+<button class="btn secondary full" id="addText">Add text</button>
+<div class="control-row"><label>Shape color</label><input id="shapeColor" type="color" value="#3478f6"></div>
+<button class="btn secondary full" id="addRect">Add rectangle</button><button class="btn secondary full" id="addCircle">Add circle</button>
+<div class="control-row"><label>Brightness</label><input id="brightness" type="range" min="-0.5" max="0.5" step="0.05" value="0"></div>
+<div class="control-row"><label>Contrast</label><input id="contrast" type="range" min="-0.5" max="0.5" step="0.05" value="0"></div>
+<div class="button-row"><button class="btn small" id="applyFilters">Apply filters</button><button class="btn small" id="resetEditor">Reset canvas</button></div>
+<button class="btn primary full" id="downloadImage">Download edited PNG</button>
+<p class="tiny muted">Tip: click an object on the canvas to select and move it. Use Delete/Backspace to remove selected objects.</p></div>
+<div class="panel canvas-panel"><div class="canvas-top"><span class="tag">EDITOR CANVAS</span><span class="muted">Select objects to move/resize</span></div><div class="canvas-wrap"><canvas id="editorCanvas" width="900" height="600"></canvas></div><p class="muted tiny">The editor uses Fabric.js loaded from a CDN; an internet connection is needed.</p></div>
+</div>
+</section>
+
+<section class="page" id="history-page">
+<div class="section-head"><div><div class="eyebrow">LOCAL ACTIVITY LOG</div><h2>Project history</h2><p class="muted">History is saved in this browser's local storage; it is not a shared cloud database.</p></div><button class="btn danger-outline" id="clearHistory">Clear history</button></div>
+<div class="stats-grid compact"><div class="stat-card"><span>Recorded actions</span><strong id="historyTotal">0</strong></div><div class="stat-card"><span>First record</span><strong class="stat-date" id="firstRecord">—</strong></div><div class="stat-card"><span>Last record</span><strong class="stat-date" id="lastRecord">—</strong></div><div class="stat-card"><span>Local page views</span><strong id="historyViews">0</strong></div></div>
+<div class="panel"><div class="table-wrap"><table><thead><tr><th>Date & time</th><th>Action</th><th>Details</th></tr></thead><tbody id="historyTable"><tr><td colspan="3">No actions recorded yet.</td></tr></tbody></table></div></div>
+</section>
+
+<section class="page" id="ads-page">
+<div class="section-head"><div><div class="eyebrow">MONETIZATION SETUP</div><h2>Ads & affiliate links</h2><p class="muted">Configure your own placements. No ad account or affiliate relationship is created automatically.</p></div></div>
+<div class="notice"><strong>Important:</strong> AdSense ads only show after Google approves your site and you add the real publisher code. Affiliate links must be issued by the affiliate program you join. Clearly disclose affiliate links.</div>
+<div class="two-col">
+<article class="panel"><div class="panel-title"><div><small>GOOGLE ADSENSE</small><h3>Ad configuration</h3></div><span class="tag">Needs approval</span></div><p class="muted">Create an AdSense account, add and verify your website, wait for approval, then paste Google's exact code into this project.</p><a class="btn secondary" href="https://adsense.google.com/start/" target="_blank" rel="noopener">Open Google AdSense ↗</a><label class="field-label">Publisher ID (optional local note)</label><input id="publisherId" class="text-input" placeholder="ca-pub-XXXXXXXXXXXXXXXX"><button class="btn primary" id="savePublisher">Save ID in this browser</button><p class="tiny muted">Saving an ID here does not activate ads. Never paste secret credentials here.</p></article>
+<article class="panel"><div class="panel-title"><div><small>AFFILIATE MARKETING</small><h3>Your affiliate links</h3></div><span class="tag blue">Manual setup</span></div><p class="muted">Add links provided by an affiliate network. Only publish products/services you can describe honestly.</p><label class="field-label">Display name</label><input id="affiliateName" class="text-input" placeholder="Example: Recommended design tool"><label class="field-label">Affiliate URL</label><input id="affiliateUrl" class="text-input" type="url" placeholder="https://…"><button class="btn primary" id="addAffiliate">Add affiliate link</button><div class="affiliate-list" id="affiliateList"></div><p class="tiny muted">Disclosure: “Some links may be affiliate links. We may earn a commission at no extra cost to you.”</p></article>
+</div>
+<div class="panel"><div class="panel-title"><div><small>AD PLACEMENT PREVIEW</small><h3>Reserved ad spaces</h3></div><span class="tag">Preview</span></div><div class="ad-slot"><div><span class="ad-label">ADVERTISEMENT</span><h3>Top banner placement</h3><p>Replace with approved AdSense code or a clearly labeled sponsored ad.</p></div><span class="ad-placeholder">Responsive ad slot</span></div><div class="ad-slot"><div><span class="ad-label">SPONSORED / AFFILIATE</span><h3>Recommended tools</h3><p>Use your real affiliate links from the list above.</p></div><span class="ad-placeholder">Affiliate placement</span></div></div>
+</section>
+
+<section class="page" id="settings-page">
+<div class="section-head"><div><div class="eyebrow">PREFERENCES</div><h2>Settings & data</h2><p class="muted">Local workspace settings for this browser.</p></div></div>
+<div class="two-col"><div class="panel"><h3>Site identity</h3><label class="field-label">Project/site name</label><input class="text-input" id="siteNameInput" value="FontSetu Next"><button class="btn primary" id="saveSiteName">Save site name</button><p class="tiny muted">Changes this browser's visible brand name.</p></div><div class="panel"><h3>Local data</h3><p class="muted">History, local counters, affiliate links and preferences are stored on this device.</p><button class="btn secondary" id="backupData">Download local data backup</button><button class="btn danger-outline" id="resetData">Reset local data and counters</button></div></div>
+<div class="notice">Counters in this version are browser-local estimates, not real total visitors or analytics. For accurate cross-user visits, connect a privacy-compliant analytics service or build a server-side counter. Never count your own test visits as ad impressions for invalid ad activity.</div>
+</section>
+</main>
+<footer><span>© <span id="year"></span> <span id="footerBrand">FontSetu Next</span></span><span>Client-side tools · Local history · Monetization placeholders</span></footer>
+</div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>
